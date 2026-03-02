@@ -1,6 +1,6 @@
 function Navbar() {
     return (
-        <nav></nav>
+        <nav>ali är bäst</nav>
     )
 } 
 
