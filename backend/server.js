@@ -1,15 +1,21 @@
-import express from 'express'
+import express from "express";
+import { db } from "./database.js";
 
-console.log("server.js körs ✅");
+console.log("firestore connected")
 
+<<<<<<< Updated upstream
 const app = express()
 const PORT = 3002
+=======
+>>>>>>> Stashed changes
 
-app.get('/get', (req, res) => {
-    res.send("Hej grupp 2")
-} )
+const app = express();
+const PORT = 3000;
+
+app.get("/get", (req, res) => {
+  res.send("Hej grupp 2");
+});
 
 app.listen(PORT, () => {
-    console.log(`Server is running on: http://${PORT}`)
-
-})
+  console.log(`Server is running on: http://localhost:${PORT}`);
+});
