@@ -1,19 +1,49 @@
 import express from "express";
-import { db } from "./database.js";
+import admin from "firebase-admin";
+import cors from "cors";
+import serviceAccount from "./serviceAccountKey.json" with { type: "json" };
 
-console.log("firestore connected")
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
-<<<<<<< Updated upstream
-const app = express()
-const PORT = 3002
-=======
->>>>>>> Stashed changes
+const db = admin.firestore();
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 const PORT = 3000;
 
-app.get("/get", (req, res) => {
-  res.send("Hej grupp 2");
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
+app.post("/addTodo", async (req, res) => {
+  try {
+    const { title, completed } = req.body;
+
+    // Validation
+    if (!title) {
+      return res.status(400).send("Title missing");
+    }
+
+    const newTodo = {
+      title: title,
+      completed: completed ?? false,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    };
+
+    const docRef = await db.collection("Todos").add(newTodo);
+
+    res.status(200).json({
+      id: docRef.id,
+      title: title,
+      completed: completed ?? false,
+    });
+  } catch (error) {
+    console.log("Error creating Todo:", error);
+    res.status(500).send("Server error creating Todo");
+  }
 });
 
 app.listen(PORT, () => {
