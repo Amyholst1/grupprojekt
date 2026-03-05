@@ -1,3 +1,19 @@
+## UI Mockup
+
+This is the full UI mockup for the frontend project.
+
+### Figma Embed
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
+    width="800" height="450"
+    src="https://embed.figma.com/design/5hUpQJbXjem1mx1YXM0KyN/First-Figma?node-id=134-3&embed-host=share"
+    allowfullscreen>
+</iframe>
+
+### Screenshots
+
+### ![Homepage](design/01-homepage.png)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
