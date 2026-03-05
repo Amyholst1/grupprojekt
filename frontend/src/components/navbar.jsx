@@ -1,6 +1,11 @@
 function Navbar() {
     return (
-        <nav></nav>
+        <>
+        <h1 className="Logo"></h1>
+        <button className="Login"></button>
+        <button className="LanguageBtn"></button>
+        <button className="LanguageBtn"></button>
+        </>
     )
 } 
 
