@@ -1,5 +1,15 @@
+# dependencies
 node_modules/
+
+# env & secrets
 .env
+<<<<<<< HEAD
+serviceAccountKey.json
+
+# build output
+dist/
+=======
 dist/
 /backend/node_modules
 .history/
+>>>>>>> 626c99e85f63e4db2000149827d2a9e0ee33ea32
