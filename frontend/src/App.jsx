@@ -1,5 +1,5 @@
 import './App.css'
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar/Navbar'
 import AddTask from './components/AddTask'
 
 function App() {
