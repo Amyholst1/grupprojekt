@@ -10,13 +10,16 @@ app.get('/get', (req, res) => {
     res.send("Hej grupp 2")
 } )
 
-app.delete("/todos/:id", async (req, res) => {
+app.delete("/deletetodos/:id", async (req, res) => {
     try {
         const todoID = req.params.id
 
-        await db.collection("")
-    } catch {
+        await db.collection("todos").doc(todoID).delete()
 
+        res.status(200).send("Borttagen")
+    } catch (error) {
+        console.log("Fel vid borttagning av Todo i servern", error)
+        res.status(500).send("Något gick fel i servern med Delete")
     }
 })
 
