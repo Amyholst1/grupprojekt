@@ -1,0 +1,7 @@
+body.dark .footer {
+  background-color: #1e1e1e;
+}
+
+body.dark .footer-link {
+  color: white;
+}
