@@ -8,21 +8,31 @@ const PORT = 3002;
 app.use(express.json());
 
 
-  app.get("/getTodos", async (req, res) => {
-  try {
-    const querySnapshot = await getDocs(collection(db, "todos"));
+app.get("/getTodos", async (req, res) => {
+    try {
+        const todoCollection = db.collection("Todos")
+        const snapshot = await todoCollection.get()
 
-    const todos = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
+        if(snapshot.empty) {
+            return res.status(400).json([])
+        }
 
-    res.status(200).json(todos);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Kunde inte hämta todos" });
-  }
-});
+        let todos = []
+
+        snapshot.forEach(todo => {
+            todos.push({
+                id: todo.id,
+                ...todo.data(),
+            })
+        })
+
+        res.status(200).json(todos)
+
+    } catch (error) {
+        console.log("Fel i hämtning av Todos")
+        res.status(500).json({ error: "Fel i hämtning av Todos" })
+    }
+})
 
 
 app.listen(PORT, () => {
