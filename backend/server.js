@@ -3,14 +3,8 @@ import { db } from "./database.js";
 
 console.log("firestore connected")
 
-<<<<<<< Updated upstream
 const app = express()
 const PORT = 3002
-=======
->>>>>>> Stashed changes
-
-const app = express();
-const PORT = 3000;
 
 app.get('/get', (req, res) => {
     res.send("Hej grupp 2")

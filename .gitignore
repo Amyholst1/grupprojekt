@@ -1,5 +1,9 @@
+# dependencies
 node_modules/
+
+# env & secrets
 .env
+serviceAccountKey.json
+
+# build output
 dist/
-/backend/node_modules
-backend/serviceAccountKey.json
