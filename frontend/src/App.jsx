@@ -1,16 +1,18 @@
-
 import './App.css'
-import Footer from "./components/Footer/Footer";
+import Navbar from './components/navbar'
+import AddTask from './components/AddTask'
+import Footer from './components/Footer/Footer'
 
 function App() {
-
   return (
     <>
-    <div>
-      <hr />
+      <Navbar />
+
+      <div>
+        <AddTask />
+      </div>
+
       <Footer />
-    </div>
-      
     </>
   )
 }
