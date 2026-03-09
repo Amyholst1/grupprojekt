@@ -35,6 +35,19 @@ app.get("/getTodos", async (req, res) => {
 })
 
 
+app.delete("/deleteTodo/:id", async (req, res) => {
+    try {
+        const todoID = req.params.id
+
+        await db.collection("Todos").doc(todoID).delete()
+
+        res.status(200).send("Borttagen")
+    } catch (error) {
+        console.log("Fel vid borttagning av Todo i servern", error)
+        res.status(500).send("Något gick fel i servern med Delete")
+    }
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on: http://localhost:${PORT}`);
 });
