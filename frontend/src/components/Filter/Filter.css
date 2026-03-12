@@ -1,0 +1,27 @@
+/* Filter.css */
+
+.filter-container {
+  display: flex;              /* lägger knapparna på rad */
+  gap: 10px;                  /* mellanrum mellan knapparna */
+  margin: 20px 0;             /* luft ovanför och under */
+  flex-wrap: wrap;            /* gör att de kan hoppa ner om skärmen är liten */
+}
+
+.filter-button {
+  border: none;               /* tar bort vanlig kant */
+  padding: 8px 14px;          /* gör knappen större */
+  border-radius: 8px;         /* rundade hörn */
+  cursor: pointer;            /* hand när man håller över */
+  background-color: #f0f0f0;  /* vanlig knappfärg */
+  transition: 0.2s;           /* lite mjukare känsla vid hover/klick */
+}
+
+.filter-button:hover {
+  background-color: #e2e2e2;
+}
+
+.filter-button.selected {
+  background-color: orange;   /* markerad knapp */
+  color: white;
+  font-weight: bold;
+}
