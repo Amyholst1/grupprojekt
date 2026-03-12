@@ -1,12 +1,18 @@
 import './App.css'
 import Navbar from './components/navbar'
 import AddTask from './components/AddTask'
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
     <>
       <Navbar />
-      <AddTask />
+
+      <div>
+        <AddTask />
+      </div>
+
+      <Footer />
     </>
   )
 }
