@@ -7,3 +7,5 @@ serviceAccountKey.json
 
 # build output
 dist/
+/backend/node_modules
+.history/
