@@ -1,0 +1,11 @@
+.date-input {
+  background: #ffffff;
+  color: gray;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 6px;
+  cursor: pointer;
+
+}

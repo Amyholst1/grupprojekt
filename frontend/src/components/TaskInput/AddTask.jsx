@@ -4,10 +4,10 @@ function AddTask({ text = "Add Task", onClick }) {
     backgroundColor: "#F97316",
     color: "#FFFFFF",
     border: "none",
-    padding: "18px 48px",
-    fontSize: "24px",
+    padding: "12px 22px",
+    fontSize: "16px",
     fontWeight: "600",
-    borderRadius: "9px",  
+    borderRadius: "12px",  
     cursor: "pointer",
   };
 
