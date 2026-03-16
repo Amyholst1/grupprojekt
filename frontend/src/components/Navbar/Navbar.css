@@ -1,0 +1,42 @@
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding-left: 40px;
+
+    background: white;
+}
+
+.navRight {
+    display: flex;
+    gap: 10px;
+    margin-right: 70px;
+}
+
+.languageBtn button:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid orange;
+}
+
+.languageBtn button:hover {
+    border: 1px solid orange;
+}
+
+.languageMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.logo {
+    color: #F97316;
+    font-size: 30px;
+    font-weight: bolder;
+}

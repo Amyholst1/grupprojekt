@@ -1,11 +1,13 @@
 import express from "express";
-import { db, FieldValue } from "./database.js";
-import cors from "cors"
+import { db } from "./database.js";
+import { Timestamp } from "firebase-admin/firestore";
+import cors from "cors";
 
 const app = express();
 app.use(cors())
 const PORT = 3002;
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/getTodos", async (req, res) => {
@@ -48,7 +50,7 @@ app.delete("/deleteTodo/:id", async (req, res) => {
 
 app.post("/addTodo", async (req, res) => {
   try {
-    const { title, completed } = req.body;
+    const { title, completed, date } = req.body;
 
     // Validation
     if (!title) {
@@ -58,7 +60,8 @@ app.post("/addTodo", async (req, res) => {
     const newTodo = {
       title: title,
       completed: completed ?? false,
-      createdAt: FieldValue.serverTimestamp(),
+      date: date,
+      createdAt: Timestamp.now(),
     };
 
     const docRef = await db.collection("Todos").add(newTodo);

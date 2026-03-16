@@ -1,3 +1,5 @@
+import {FiTrash} from "react-icons/fi"
+
 function DeleteTodo({id, refetch}) {
 
     async function deleteTodo() {
@@ -11,7 +13,9 @@ function DeleteTodo({id, refetch}) {
     }
 
     return (
-        <button onClick={deleteTodo}>🗑️</button>
+        <button onClick={deleteTodo}>
+            <FiTrash></FiTrash>
+        </button>
     )
 }
 
