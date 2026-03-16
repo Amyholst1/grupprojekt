@@ -1,11 +1,11 @@
-import { use, useState } from "react";
+import { useState } from "react";
 
 function LanguageBtn () {
-    const [Open, setOpen] = useState(false);
-    const [Language, setLanguage] = useState("EN");
+    const [open, setOpen] = useState(false);
+    const [language, setLanguage] = useState("EN");
 
     const toggleMenu = () => {
-        setOpen (!Open);
+        setOpen (!open);
     }
 
     const changeLanguage = (lang) => {
@@ -15,9 +15,9 @@ function LanguageBtn () {
 
     return (
         <div className="languageBtn">
-            <button onClick={toggleMenu}> {Language} ↓</button>
+            <button onClick={toggleMenu}> {language} ↓</button>
 
-            {Open && (
+            {open && (
                 <div className="languageMenu">
                     <button onClick={() => changeLanguage("EN")}>English</button>
                     <button onClick={() => changeLanguage("SE")}>Swedish</button>
