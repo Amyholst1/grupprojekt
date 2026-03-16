@@ -1,8 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
-import AddTask from './components/AddTask'
 import { useState } from 'react'
-import Navbar from './components/navbar'
 import Filter from './components/Filter/Filter'
 import TaskInput from './components/TaskInput/TaskInput'
 
