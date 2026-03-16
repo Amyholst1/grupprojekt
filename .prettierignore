@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+coverage
+.history
+*.log
+*.env
+serviceAccountKey.json
+/frontend/src/components/Filter/Filter.css
