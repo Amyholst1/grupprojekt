@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar'
 import { useState } from 'react'
 import Filter from './components/Filter/Filter'
 import TaskInput from './components/TaskInput/TaskInput'
+import Todolist from './components/Todolist/Todolist'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       selectedFilter={selectedFilter}
       setSelectedFilter={setSelectedFilter}
       />
+      <Todolist></Todolist>
     </>
   )
 }
