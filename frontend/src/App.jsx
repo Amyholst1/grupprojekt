@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Filter from './components/Filter/Filter'
 import TaskInput from './components/TaskInput/TaskInput'
 import Todolist from './components/Todolist/Todolist'
+import SortBy from './components/SortBy/SortBy'
 
 
 function App() {
@@ -18,10 +19,17 @@ function App() {
     <>
       <Navbar />
       <TaskInput onAddTask={handleAddTask} />
-      <Filter 
-      selectedFilter={selectedFilter}
-      setSelectedFilter={setSelectedFilter}
-      />
+
+    <div className="filter-sort-container">
+    <Filter
+    selectedFilter={selectedFilter}
+    setSelectedFilter={setSelectedFilter}
+   />
+    <SortBy
+    sortBy={selectedFilter}
+    setSortBy={setSelectedFilter}
+   />
+   </div>
       <Todolist></Todolist>
     </>
   )
