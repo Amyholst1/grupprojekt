@@ -21,7 +21,7 @@
 }
 
 .filter-button.selected {
-  background-color: orange;   /* markerad knapp */
+  background-color: #F97316;   /* markerad knapp */
   color: white;
   font-weight: bold;
 }
