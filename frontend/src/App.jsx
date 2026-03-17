@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <TaskInput onAddTask={handleAddTask} />
+      <TaskInput onAddTask={handleAddTask}/>
       <Filter 
       selectedFilter={selectedFilter}
       setSelectedFilter={setSelectedFilter}
