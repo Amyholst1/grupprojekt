@@ -42,10 +42,12 @@ function Todolist({ selectedFilter, sortBy }) {
                     <div className="listleft">
                         <Checkbox todo={todo} refetch={refetch}/>
                         <span>{todo.title}</span> 
-                        <small>{todo.date}</small>
                     </div>
-                
-                    <DeleteTodo id={todo.id} refetch={refetch}/>
+
+                    <div className="listright">
+                        <small>{todo.date}</small>
+                        <DeleteTodo id={todo.id} refetch={refetch}/>
+                    </div>
                 </li>
             ))}
         </ul>

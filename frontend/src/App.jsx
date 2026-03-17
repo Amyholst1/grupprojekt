@@ -9,7 +9,7 @@ import ToastMessage from "./components/ToastMessage/ToastMessage";
 
 function App() {
   const [selectedFilter, setSelectedFilter] = useState("All");
-  const [sortBy, setSortBy] = useState("Newest");
+  const [sortBy, setSortBy] = useState("");
   const [toast, setToast] = useState(null);
 
   function showToast(message, type) {
