@@ -18,18 +18,21 @@ function App() {
   return (
     <>
       <Navbar />
+
       <TaskInput onAddTask={handleAddTask} />
 
-    <div className="filter-sort-container">
-    <Filter
-    selectedFilter={selectedFilter}
-    setSelectedFilter={setSelectedFilter}
-   />
-    <SortBy
-    sortBy={selectedFilter}
-    setSortBy={setSelectedFilter}
-   />
-   </div>
+      <div className="filter-sort-container">
+        <Filter
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+        />
+
+        <SortBy
+          sortBy={selectedFilter}
+          setSortBy={setSelectedFilter}
+        />
+      </div>
+
       <Todolist></Todolist>
     </>
   )
