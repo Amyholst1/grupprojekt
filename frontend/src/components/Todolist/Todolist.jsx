@@ -3,7 +3,7 @@ import DeleteTodo from "./DeleteTodo"
 import Checkbox from "./Checkbox"
 import "./Todolist.css"
 
-function Todolist() {
+function Todolist({ selectedFilter, sortBy }) {
 
     const {data: todos = [], isLoading, refetch} = useQuery({
         queryKey: ["Todos"],
@@ -13,16 +13,36 @@ function Todolist() {
         }
     })
 
+
+    let filteredTodos = [...todos]
+
+    // filter
+    if (selectedFilter === "Active") {
+     filteredTodos = filteredTodos.filter((todo) => !todo.completed);
+    } else if (selectedFilter === "Completed") {
+    filteredTodos = filteredTodos.filter((todo) => todo.completed);
+   }
+
+   // SortBy
+   if (sortBy === "Newest") {
+   filteredTodos.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+   }  else if (sortBy === "Oldest") {
+   filteredTodos.sort((a, b) => new Date(a.date || 0) - new Date(b.date || 0));
+   }  else if (sortBy === "A-Z") {
+   filteredTodos.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
     if (isLoading) return <p>Loading...</p>
 
     return (
         <>
         <ul>
-            {todos.map((todo) => (
+            {filteredTodos.map((todo) => (
                 <li key={todo.id}>
                     <div className="listleft">
                         <Checkbox todo={todo} refetch={refetch}/>
                         <span>{todo.title}</span> 
+                        <small>{todo.date}</small>
                     </div>
                 
                     <DeleteTodo id={todo.id} refetch={refetch}/>

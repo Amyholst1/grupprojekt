@@ -23,5 +23,10 @@
 .filter-button.selected {
   background-color: #F97316;   /* markerad knapp */
   color: white;
-  font-weight: bold;
+  
+}
+
+.filter-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #F97316;
 }
