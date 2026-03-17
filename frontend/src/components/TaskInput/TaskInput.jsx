@@ -1,11 +1,13 @@
-import { useState } from "react";
+import "./TaskInput.css";
 import AddTask from "./AddTask";
 import DateInput from "./DateInput";
-import "./TaskInput.css";
+import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
-function TaskInput({ onAddTask }) {
+function TaskInput({ showToast }) {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
+  const queryClient = useQueryClient();
 
   async function handleAddTask() {
     if (!task.trim()) {
@@ -16,51 +18,52 @@ function TaskInput({ onAddTask }) {
     const newTask = {
       title: task,
       completed: false,
-      date: date
+      date: date,
     };
 
     try {
       console.log("Sending task:", newTask);
 
-    const response = await fetch("http://localhost:3002/addTodo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newTask),
-    });
+      const response = await fetch("http://localhost:3002/addTodo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newTask),
+      });
 
- // Check if the response is successful
-    if (!response.ok) {
-  throw new Error("Failed to add task");
-}
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error("Failed to add task");
+      }
 
-    const data = await response.json();
-    console.log("Server response:", data);
+      const data = await response.json();
+      console.log("Server response:", data);
 
-    if (onAddTask) {
-      onAddTask(data);
+      queryClient.invalidateQueries({ queryKey: ["Todos"] });
+
+      setTask("");
+      setDate("");
+
+      showToast("Task added successfully!", "success");
+    } catch (error) {
+      console.error("Error adding task:", error);
+      showToast("Failed to add task. Please try again.", "error");
     }
-
-    setTask("");
-    setDate("");
-  }catch (error) {
-    console.error("Error adding task:", error);
   }
-}
 
   return (
     <div className="task-input-container">
-     <div className="task-field">
-      <input
-        type="text"
-        placeholder="Enter a new task..."
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        className="task-text-input"
-      />
+      <div className="task-field">
+        <input
+          type="text"
+          placeholder="Enter a new task..."
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          className="task-text-input"
+        />
 
-      <DateInput date={date} setDate={setDate} />
+        <DateInput date={date} setDate={setDate} />
       </div>
 
       <AddTask onClick={handleAddTask} />

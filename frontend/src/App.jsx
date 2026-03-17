@@ -1,25 +1,30 @@
-import './App.css'
-import Navbar from './components/Navbar/Navbar'
-import { useState } from 'react'
-import Filter from './components/Filter/Filter'
-import TaskInput from './components/TaskInput/TaskInput'
-import Todolist from './components/Todolist/Todolist'
-import SortBy from './components/SortBy/SortBy'
-
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import { useState } from "react";
+import Filter from "./components/Filter/Filter";
+import TaskInput from "./components/TaskInput/TaskInput";
+import Todolist from "./components/Todolist/Todolist";
+import SortBy from "./components/SortBy/SortBy";
+import ToastMessage from "./components/ToastMessage/ToastMessage";
 
 function App() {
-  const [selectedFilter, setSelectedFilter] = useState("All")
-   const [tasks, setTasks] = useState([])
+  const [selectedFilter, setSelectedFilter] = useState("All");
+  const [sortBy, setSortBy] = useState("Newest");
+  const [toast, setToast] = useState(null);
 
-  function handleAddTask(newTask) {
-    setTasks((prevTasks) => [...prevTasks, newTask])
+  function showToast(message, type) {
+    setToast({ message, type });
+
+    setTimeout(() => {
+      setToast(null);
+    }, 3000);
   }
 
   return (
     <>
       <Navbar />
 
-      <TaskInput onAddTask={handleAddTask} />
+      <TaskInput showToast={showToast} />
 
       <div className="filter-sort-container">
         <Filter
@@ -27,15 +32,14 @@ function App() {
           setSelectedFilter={setSelectedFilter}
         />
 
-        <SortBy
-          sortBy={selectedFilter}
-          setSortBy={setSelectedFilter}
-        />
+        <SortBy sortBy={sortBy} setSortBy={setSortBy} />
       </div>
 
-      <Todolist></Todolist>
+      <Todolist selectedFilter={selectedFilter} sortBy={sortBy} />
+
+      {toast && <ToastMessage message={toast.message} type={toast.type} />}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
