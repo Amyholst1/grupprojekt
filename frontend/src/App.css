@@ -34,3 +34,11 @@
 .read-the-docs {
   color: #888;
 }
+
+.filter-sort-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* ✅ flyttar vänster */
+  gap: 20px; /* lite tightare som Figma */
+  margin-top: 20px;
+}

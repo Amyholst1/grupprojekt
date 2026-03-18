@@ -21,6 +21,12 @@ li{
     gap: 8px;
 }
 
+.listright{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 button{
     background: transparent;
     border: none;
