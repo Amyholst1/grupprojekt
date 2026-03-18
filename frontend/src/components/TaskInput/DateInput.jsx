@@ -10,5 +10,4 @@ function DateInput({ date, setDate }) {
     />
   );
 }
-
 export default DateInput;
