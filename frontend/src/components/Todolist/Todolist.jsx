@@ -5,7 +5,7 @@ import "./Todolist.css"
 
 function Todolist({ selectedFilter, sortBy }) {
 
-    const {data: todos = [], isLoading, refetch} = useQuery({
+    const {data: todos = [], isLoading} = useQuery({
         queryKey: ["Todos"],
         queryFn: async () => {
             const res = await fetch ("http://localhost:3002/getTodos")
@@ -40,7 +40,7 @@ function Todolist({ selectedFilter, sortBy }) {
             {filteredTodos.map((todo) => (
                 <li key={todo.id}>
                     <div className="listleft">
-                        <Checkbox todo={todo} refetch={refetch}/>
+                        <Checkbox todo={todo} />
                         <span>{todo.title}</span> 
                     </div>
 
