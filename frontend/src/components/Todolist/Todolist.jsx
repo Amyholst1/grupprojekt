@@ -5,7 +5,7 @@ import "./Todolist.css"
 
 function Todolist() {
 
-    const {data: todos = [], isLoading, refetch} = useQuery({
+    const {data: todos = [], isLoading} = useQuery({
         queryKey: ["Todos"],
         queryFn: async () => {
             const res = await fetch ("http://localhost:3002/getTodos")
@@ -21,11 +21,11 @@ function Todolist() {
             {todos.map((todo) => (
                 <li key={todo.id}>
                     <div className="listleft">
-                        <Checkbox todo={todo} refetch={refetch}/>
+                        <Checkbox todo={todo} />
                         <span>{todo.title}</span> 
                     </div>
                 
-                    <DeleteTodo id={todo.id} refetch={refetch}/>
+                    <DeleteTodo id={todo.id} />
                 </li>
             ))}
         </ul>

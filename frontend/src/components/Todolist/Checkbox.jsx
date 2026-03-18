@@ -1,4 +1,7 @@
-function Checkbox ({todo, refetch}) {
+import { useQueryClient } from "@tanstack/react-query"
+
+function Checkbox ({todo}) {
+    const queryClient = useQueryClient();
 
     async function toggleTodo() {
 
@@ -13,7 +16,7 @@ function Checkbox ({todo, refetch}) {
             })
         }) 
 
-        refetch()
+        queryClient.invalidateQueries({queryKey: ["Todos"]})
 
     } catch (error){
         console.error("Error updating Todo", error)
