@@ -15,24 +15,32 @@
 
 .navRight {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
     margin-right: 70px;
 }
 
-.languageBtn button:focus {
+.notificationBell button:focus {
     outline: none;
-    box-shadow: none;
-    border: 1px solid orange;
+    box-shadow: 0 4px  6px lightgray;
 }
 
-.languageBtn button:hover {
-    border: 1px solid orange;
-}
-
-.languageMenu {
+.notificationBell{
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.dropdown{
     position: absolute;
+    top: 100%;
+    right: 1px;
+    background-color: white;
+    box-shadow: 0 4px  6px lightgray;
+    border-radius: 10px;
+    width: 220px;
+    padding: 10px;
 }
 
 .logo {

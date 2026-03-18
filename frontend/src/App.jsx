@@ -11,6 +11,7 @@ function App() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [sortBy, setSortBy] = useState("");
   const [toast, setToast] = useState(null);
+  const [notifications, setNotifications]= useState([])
 
   function showToast(message, type) {
     setToast({ message, type });
@@ -20,11 +21,21 @@ function App() {
     }, 3000);
   }
 
+  function showNotification(text) {
+    setNotifications(prev => [
+      {
+        id: Date.now(),
+        text
+      },
+      ...prev
+    ])
+  }
+
   return (
     <>
-      <Navbar />
+      <Navbar notifications={notifications}/>
 
-      <TaskInput showToast={showToast} />
+      <TaskInput showToast={showToast} showNotification={showNotification}/>
 
       <div className="filter-sort-container">
         <Filter
@@ -35,7 +46,7 @@ function App() {
         <SortBy sortBy={sortBy} setSortBy={setSortBy} />
       </div>
 
-      <Todolist selectedFilter={selectedFilter} sortBy={sortBy} />
+      <Todolist selectedFilter={selectedFilter} sortBy={sortBy} showNotification={showNotification}/>
 
       {toast && <ToastMessage message={toast.message} type={toast.type} />}
     </>
