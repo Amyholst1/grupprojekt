@@ -46,7 +46,7 @@ function Todolist({ selectedFilter, sortBy }) {
 
                     <div className="listright">
                         <small>{todo.date}</small>
-                        <DeleteTodo id={todo.id} refetch={refetch}/>
+                        <DeleteTodo id={todo.id} />
                     </div>
                 </li>
             ))}
