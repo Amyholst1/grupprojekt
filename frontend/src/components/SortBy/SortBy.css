@@ -1,0 +1,36 @@
+.sort-container {
+  display: flex;
+  margin-left: auto;
+}
+
+.sort-select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+  outline: none;
+  box-shadow: none;
+}
+
+.sort-select.placeholder {
+  background-color: #f0f0f0;
+  color: #6b7280;
+}
+
+.sort-select.selected {
+  background-color: #f0f0f0 ;
+  color: black;
+}
+
+.sort-select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.sort-select option {
+  color: black;
+  background: white;
+}

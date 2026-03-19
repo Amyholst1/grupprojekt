@@ -1,0 +1,50 @@
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding-left: 40px;
+
+    background: white;
+}
+
+.navRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 70px;
+}
+
+.notificationBell button:focus {
+    outline: none;
+    box-shadow: 0 4px  6px lightgray;
+}
+
+.notificationBell{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.dropdown{
+    position: absolute;
+    top: 100%;
+    right: 1px;
+    background-color: white;
+    box-shadow: 0 4px  6px lightgray;
+    border-radius: 10px;
+    width: 220px;
+    padding: 10px;
+}
+
+.logo {
+    color: #F97316;
+    font-size: 30px;
+    font-weight: bolder;
+}

@@ -1,5 +1,5 @@
 import { initializeApp, cert } from "firebase-admin/app";
-import { getFirestore } from "firebase-admin/firestore";
+import { getFirestore, FieldValue } from "firebase-admin/firestore";
 import serviceAccount from "./serviceAccountKey.json" with { type: "json" };
 
 initializeApp({
@@ -7,3 +7,4 @@ initializeApp({
 });
 
 export const db = getFirestore();
+export { FieldValue };

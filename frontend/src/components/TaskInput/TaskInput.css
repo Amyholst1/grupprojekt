@@ -1,0 +1,36 @@
+.task-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Input + date icon container */
+.task-field {
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+  border-radius: 12px;
+  padding: 0 12px;
+  height: 48px;
+  flex: 1;
+}
+
+.task-field:focus-within {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+/* Text input */
+.task-text-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 250px;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .task-text-input {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,26 @@
+.date-input {
+  background: #ffffff;
+  color: gray;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+/* =========================
+   📱 MOBILE VERSION
+   ========================= */
+@media (max-width: 600px) {
+  .date-input {
+    color: transparent;
+    width: 20px;
+    padding: 6px 4px;
+  }
+
+  .date-input::-webkit-calendar-picker-indicator {
+    opacity: 1;
+    cursor: pointer;
+  }
+}

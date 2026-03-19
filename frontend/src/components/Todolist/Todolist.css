@@ -1,0 +1,33 @@
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: white;
+    border-radius: 8px;
+}
+
+.listleft{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.listright{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button{
+    background: transparent;
+    border: none;
+}
