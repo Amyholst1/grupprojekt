@@ -3,25 +3,29 @@
   margin-left: auto;
 }
 
+.sort-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .sort-select {
-  padding: 8px 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: 8px 30px 8px 14px;
   border-radius: 8px;
   border: none;
   font: inherit;
   font-weight: 500;
   cursor: pointer;
-  transition: 0.2s;
   outline: none;
   box-shadow: none;
-}
-
-.sort-select.placeholder {
   background-color: #f0f0f0;
   color: #6b7280;
 }
 
 .sort-select.selected {
-  background-color: #f0f0f0 ;
   color: black;
 }
 
@@ -30,7 +34,12 @@
   box-shadow: none;
 }
 
-.sort-select option {
-  color: black;
-  background: white;
+.sort-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b7280;
+  font-size: 14px;
 }
