@@ -19,8 +19,7 @@ function Footer() {
       </a>
 
       <div className="theme-toggle">
-        <button onClick={toggleTheme}>●</button>
-        <button onClick={toggleTheme}>☾</button>
+        <button onClick={toggleTheme}>🌓</button>
       </div>
 
     </footer>
