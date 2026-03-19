@@ -35,20 +35,22 @@ function App() {
     <>
       <Navbar notifications={notifications}/>
 
-      <TaskInput showToast={showToast} showNotification={showNotification}/>
+      <div className="app-container">
+        <TaskInput showToast={showToast} showNotification={showNotification}/>
 
-      <div className="filter-sort-container">
-        <Filter
-          selectedFilter={selectedFilter}
-          setSelectedFilter={setSelectedFilter}
-        />
+        <div className="filter-sort-container">
+          <Filter
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+          />
 
-        <SortBy sortBy={sortBy} setSortBy={setSortBy} />
+          <SortBy sortBy={sortBy} setSortBy={setSortBy} />
+        </div>
+
+        <Todolist selectedFilter={selectedFilter} sortBy={sortBy} showNotification={showNotification}/>
+
+        {toast && <ToastMessage message={toast.message} type={toast.type} />}
       </div>
-
-      <Todolist selectedFilter={selectedFilter} sortBy={sortBy} showNotification={showNotification}/>
-
-      {toast && <ToastMessage message={toast.message} type={toast.type} />}
     </>
   );
 }

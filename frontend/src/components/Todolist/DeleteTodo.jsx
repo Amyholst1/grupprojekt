@@ -10,7 +10,7 @@ function DeleteTodo({id, title, showNotification}) {
             method: "DELETE"
         }) 
 
-        showNotification(`${title} deleted from list`)
+        showNotification(`${title} deleted from list 🗑️`)
 
         queryClient.invalidateQueries({queryKey:["Todos"]})
     }
