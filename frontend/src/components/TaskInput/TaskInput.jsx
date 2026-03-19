@@ -4,7 +4,7 @@ import DateInput from "./DateInput";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-function TaskInput({ showToast }) {
+function TaskInput({ showToast, showNotification }) {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
   const queryClient = useQueryClient();
@@ -46,6 +46,7 @@ function TaskInput({ showToast }) {
       setDate("");
 
       showToast("Task added successfully!", "success");
+      showNotification(`${task} added to list`)
     } catch (error) {
       console.error("Error adding task:", error);
       showToast("Failed to add task. Please try again.", "error");

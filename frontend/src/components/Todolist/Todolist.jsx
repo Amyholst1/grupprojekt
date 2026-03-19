@@ -3,7 +3,7 @@ import DeleteTodo from "./DeleteTodo"
 import Checkbox from "./Checkbox"
 import "./Todolist.css"
 
-function Todolist({ selectedFilter, sortBy }) {
+function Todolist({ selectedFilter, sortBy, showNotification }) {
 
     const {data: todos = [], isLoading} = useQuery({
         queryKey: ["Todos"],
@@ -46,7 +46,7 @@ function Todolist({ selectedFilter, sortBy }) {
 
                     <div className="listright">
                         <small>{todo.date}</small>
-                        <DeleteTodo id={todo.id} />
+                        <DeleteTodo id={todo.id} title={todo.title} showNotification={showNotification}/>
                     </div>
                 </li>
             ))}
