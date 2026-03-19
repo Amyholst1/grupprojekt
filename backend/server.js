@@ -48,6 +48,37 @@ app.delete("/deleteTodo/:id", async (req, res) => {
   }
 });
 
+app.put("/updateTodo/:id", async (req, res) => {
+  try {
+    const todoID = req.params.id;
+    const { completed } = req.body;
+
+    if (completed === undefined) {
+      return res.status(400).send("Completed missing");
+    }
+
+    const todoRef = db.collection("Todos").doc(todoID);
+    const todoDoc = await todoRef.get();
+
+    if (!todoDoc.exists) {
+      return res.status(404).send("Todo not found");
+    }
+
+    await todoRef.update({
+      completed: completed,
+    });
+
+    res.status(200).json({
+      id: todoID,
+      ...todoDoc.data(),
+      completed: completed,
+    });
+  } catch (error) {
+    console.log("Fel vid uppdatering av Todo i servern", error);
+    res.status(500).send("Något gick fel i servern med Update");
+  }
+});
+
 app.post("/addTodo", async (req, res) => {
   try {
     const { title, completed, date } = req.body;
