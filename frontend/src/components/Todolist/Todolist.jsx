@@ -1,6 +1,8 @@
 import DeleteTodo from "./DeleteTodo";
 import Checkbox from "./Checkbox";
 import "./Todolist.css";
+import EditTodo from "./EditTodo";
+import { LuSquarePen } from "react-icons/lu";
 
 function Todolist({ tasks, selectedFilter, sortBy, showNotification }) {
   let filteredTodos = [...tasks];
@@ -22,25 +24,40 @@ function Todolist({ tasks, selectedFilter, sortBy, showNotification }) {
   }
 
   return (
-    <ul>
-      {filteredTodos.map((todo) => (
-        <li key={todo.id}>
-          <div className="listleft">
-            <Checkbox todo={todo} />
-            <span>{todo.title}</span>
-          </div>
+    <>
+      <ul>
+        {filteredTodos.map((todo) => (
+          <li key={todo.id}>
+            <div className="listleft">
+              <Checkbox todo={todo} />
+              <EditTodo todo={todo} />
+            </div>
 
-          <div className="listright">
-            <small>{todo.date}</small>
-            <DeleteTodo
-              id={todo.id}
-              title={todo.title}
-              showNotification={showNotification}
-            />
-          </div>
-        </li>
-      ))}
-    </ul>
+            <div className="listright">
+              <small>{todo.date}</small>
+              <div className="todo-actions">
+                <button
+                  className="icon-btn"
+                  onClick={() =>
+                    document.dispatchEvent(
+                      new CustomEvent("start-edit", { detail: todo.id }),
+                    )
+                  }
+                >
+                  <LuSquarePen size={16} />
+                </button>
+
+                <DeleteTodo
+                  id={todo.id}
+                  title={todo.title}
+                  showNotification={showNotification}
+                />
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 
