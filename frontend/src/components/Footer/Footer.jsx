@@ -1,10 +1,21 @@
+import { useState, useEffect} from "react"
 import "./Footer.css";
+import { FiMoon } from "react-icons/fi";
 
 function Footer() {
+  const [darkMode, setDarkMode] = useState(false)
 
   function toggleTheme() {
-    document.body.classList.toggle("dark");
+    setDarkMode(!darkMode)
   }
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark")
+    } else {
+      document.body.classList.remove("dark")
+    }
+  }, [darkMode]);
 
   return (
     <footer className="footer">
@@ -18,10 +29,15 @@ function Footer() {
         Copyright © 2026
       </a>
 
+     
       <div className="theme-toggle">
-        <button onClick={toggleTheme}>🌓</button>
-      </div>
-
+        <div className="toggle-switch" onClick={toggleTheme}>
+          <div className={`toggle-circle ${darkMode ? "active" : ""}`}></div>
+          <span className="moon">
+       <FiMoon />
+      </span>
+  </div>
+</div>
     </footer>
   );
 }
