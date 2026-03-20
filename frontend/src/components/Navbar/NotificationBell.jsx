@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { FiBell } from "react-icons/fi";
+import { FiTrash } from "react-icons/fi";
 
 function NotificationBell ({notifications = []}) {
     const [open, setOpen] = useState(false);
@@ -40,7 +41,10 @@ useEffect(() => {
                         <p>No notifications</p>
                     ) : (
                     notifications.map((n) => (
-                        <p key={n.id}>{n.text}</p>
+                        <p key={n.id}>
+                            {n.text}
+                            {n.type === "delete" && <FiTrash />
+                        }</p>
                         ))
                     )}
                 </div>

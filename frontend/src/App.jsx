@@ -21,11 +21,12 @@ function App() {
     }, 3000);
   }
 
-  function showNotification(text) {
+  function showNotification(text, type) {
     setNotifications(prev => [
       {
         id: Date.now(),
-        text
+        text,
+        type
       },
       ...prev
     ])

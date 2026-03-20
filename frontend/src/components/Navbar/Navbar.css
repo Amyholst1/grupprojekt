@@ -37,6 +37,12 @@
     padding: 10px;
 }
 
+.dropdown p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .logo {
     color: #F97316;
     font-size: 30px;
