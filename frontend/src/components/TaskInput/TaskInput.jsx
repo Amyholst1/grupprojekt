@@ -18,7 +18,7 @@ function TaskInput({ showToast, showNotification }) {
     const newTask = {
       title: task,
       completed: false,
-      date: date,
+      date: date || new Date().toISOString().split("T")[0],
     };
 
     try {
