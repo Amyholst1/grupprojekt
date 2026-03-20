@@ -26,6 +26,8 @@ function App() {
     },
   });
 
+  if (isLoading) return <p>Loading...</p>;
+
   function showToast(message, type) {
     setToast({ message, type });
 

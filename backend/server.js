@@ -51,27 +51,28 @@ app.delete("/deleteTodo/:id", async (req, res) => {
 app.put("/updateTodo/:id", async (req, res) => {
   try {
     const todoID = req.params.id;
-    const { completed } = req.body;
+    const { completed, title } = req.body;
 
-    if (completed === undefined) {
-      return res.status(400).send("Completed missing");
+    if (completed === undefined && title === undefined) {
+      return res.status(400).send("No fields to update");
     }
 
     const todoRef = db.collection("Todos").doc(todoID);
     const todoDoc = await todoRef.get();
-
     if (!todoDoc.exists) {
       return res.status(404).send("Todo not found");
     }
 
-    await todoRef.update({
-      completed: completed,
-    });
+    const updates = {};
+    if (completed !== undefined) updates.completed = completed;
+    if (title !== undefined) updates.title = title.trim();
+
+    await todoRef.update(updates);
 
     res.status(200).json({
       id: todoID,
       ...todoDoc.data(),
-      completed: completed,
+      ...updates,
     });
   } catch (error) {
     console.log("Fel vid uppdatering av Todo i servern", error);
