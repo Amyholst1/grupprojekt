@@ -18,7 +18,7 @@ function TaskInput({ showToast, showNotification }) {
     const newTask = {
       title: task,
       completed: false,
-      date: date,
+      date: date || new Date().toISOString().split("T")[0],
     };
 
     try {
@@ -46,7 +46,7 @@ function TaskInput({ showToast, showNotification }) {
       setDate("");
 
       showToast("Task added successfully!", "success");
-      showNotification(`${task} added to list`)
+      showNotification(`${task} added to list ✔`)
     } catch (error) {
       console.error("Error adding task:", error);
       showToast("Failed to add task. Please try again.", "error");
