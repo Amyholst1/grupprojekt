@@ -1,16 +1,10 @@
 .navbar {
-    position: fixed;
-    top: 20px;
-    left: 0;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    width: 100%;
-    padding-left: 40px;
-
     background: white;
+    box-shadow: 0 1px 4px rgb(152, 152, 152);
 }
 
 .navRight {
@@ -43,8 +37,15 @@
     padding: 10px;
 }
 
+.dropdown p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .logo {
     color: #F97316;
     font-size: 30px;
     font-weight: bolder;
+    margin-left: 30px;
 }

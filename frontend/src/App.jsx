@@ -36,11 +36,12 @@ function App() {
     }, 3000);
   }
 
-  function showNotification(text) {
-    setNotifications((prev) => [
+  function showNotification(text, type) {
+    setNotifications(prev => [
       {
         id: Date.now(),
         text,
+        type
       },
       ...prev,
     ]);
@@ -51,16 +52,17 @@ function App() {
       <Navbar notifications={notifications} />
       <TaskProgress tasks={tasks} />
 
-      <TaskInput showToast={showToast} showNotification={showNotification} />
+      <div className="app-container">
+        <TaskInput showToast={showToast} showNotification={showNotification}/>
 
-      <div className="filter-sort-container">
-        <Filter
-          selectedFilter={selectedFilter}
-          setSelectedFilter={setSelectedFilter}
-        />
+        <div className="filter-sort-container">
+          <Filter
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+          />
 
-        <SortBy sortBy={sortBy} setSortBy={setSortBy} />
-      </div>
+          <SortBy sortBy={sortBy} setSortBy={setSortBy} />
+        </div>
 
       <Todolist
         tasks={tasks}
@@ -69,7 +71,8 @@ function App() {
         showNotification={showNotification}
       />
 
-      {toast && <ToastMessage message={toast.message} type={toast.type} />}
+        {toast && <ToastMessage message={toast.message} type={toast.type} />}
+      </div>
     </>
   );
 }
