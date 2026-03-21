@@ -9,6 +9,7 @@ import ToastMessage from "./components/ToastMessage/ToastMessage";
 import Footer from "./components/Footer/Footer";
 import TaskProgress from "./components/TaskProgress/TaskProgress";
 import { useQuery } from "@tanstack/react-query";
+import CookieBanner from "./components/CookieBanner/CookieBanner";
 
 function App() {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -38,11 +39,11 @@ function App() {
   }
 
   function showNotification(text, type) {
-    setNotifications(prev => [
+    setNotifications((prev) => [
       {
         id: Date.now(),
         text,
-        type
+        type,
       },
       ...prev,
     ]);
@@ -51,10 +52,10 @@ function App() {
   return (
     <>
       <Navbar notifications={notifications} />
-      <TaskProgress tasks={tasks} />
-
       <div className="app-container">
-        <TaskInput showToast={showToast} showNotification={showNotification}/>
+        <TaskProgress tasks={tasks} />
+
+        <TaskInput showToast={showToast} showNotification={showNotification} />
 
         <div className="filter-sort-container">
           <Filter
@@ -65,17 +66,18 @@ function App() {
           <SortBy sortBy={sortBy} setSortBy={setSortBy} />
         </div>
 
-      <Todolist
-        tasks={tasks}
-        selectedFilter={selectedFilter}
-        sortBy={sortBy}
-        showNotification={showNotification}
-      />
+        <Todolist
+          tasks={tasks}
+          selectedFilter={selectedFilter}
+          sortBy={sortBy}
+          showNotification={showNotification}
+        />
 
-      {toast && <ToastMessage message={toast.message} type={toast.type} />}
+        {toast && <ToastMessage message={toast.message} type={toast.type} />}
+        <CookieBanner />
       </div>
 
-     <Footer />
+      <Footer />
     </>
   );
 }
