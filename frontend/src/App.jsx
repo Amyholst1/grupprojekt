@@ -6,6 +6,7 @@ import TaskInput from "./components/TaskInput/TaskInput";
 import Todolist from "./components/Todolist/Todolist";
 import SortBy from "./components/SortBy/SortBy";
 import ToastMessage from "./components/ToastMessage/ToastMessage";
+import Footer from "./components/Footer/Footer";
 import TaskProgress from "./components/TaskProgress/TaskProgress";
 import { useQuery } from "@tanstack/react-query";
 
@@ -71,8 +72,10 @@ function App() {
         showNotification={showNotification}
       />
 
-        {toast && <ToastMessage message={toast.message} type={toast.type} />}
+      {toast && <ToastMessage message={toast.message} type={toast.type} />}
       </div>
+
+     <Footer />
     </>
   );
 }

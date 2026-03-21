@@ -1,0 +1,89 @@
+.footer {
+  margin-top: auto;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: #efefef;
+  border-top: 1px solid #d9d9d9;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- TEXT / LINK ---------- */
+
+.footer-link {
+  margin: 0;
+  color: #222;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-link:visited {
+  color: #222;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- TOGGLE CONTAINER ---------- */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- TOGGLE (FIGMA STYLE) ---------- */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-switch {
+  width: 90px;
+  height: 48px;
+  background: #f8f8f8;
+  border-radius: 16px;
+  padding: 0 12px;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.toggle-circle {
+  width: 22px;
+  height: 22px;
+  background: #111;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  transition: left 0.25s ease;
+}
+
+.toggle-circle.active {
+  left: 56px;
+}
+
+.moon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+body.dark .toggle-switch {
+  background: #2a2a2a;
+}
+
+body.dark .toggle-circle {
+  background: #fff;
+}
