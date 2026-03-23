@@ -1,12 +1,21 @@
 .date-input {
   background: #ffffff;
-  color: gray;
+  color: #6b7280;
   border-radius: 6px;
   border: none;
   outline: none;
   font-size: 14px;
   padding: 6px;
   cursor: pointer;
+}
+
+body.dark .date-input {
+  background: #3a3a3a;
+  color: #e5e7eb;
+}
+
+body.dark .date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 
 /* =========================

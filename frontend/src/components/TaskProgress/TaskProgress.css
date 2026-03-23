@@ -1,9 +1,12 @@
 .task-progress {
   margin: 15px 0;
   font-size: 14px;
-  color: black; 
+  color: #111827;
   font-weight: 500;
   text-align: left;
-  width: 100%; 
-  
+  width: 100%;
+}
+
+body.dark .task-progress {
+  color: #e5e7eb;
 }

@@ -19,6 +19,10 @@
   opacity: 0.9;
 }
 
+body.dark .add-task-btn {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
 @media (max-width: 600px) {
   .add-task-btn {
     padding: 0 12px;

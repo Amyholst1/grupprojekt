@@ -7,6 +7,7 @@ function DateInput({ date, setDate }) {
       value={date}
       onChange={(e) => setDate(e.target.value)}
       className="date-input"
+      aria-label="Choose a due date"
     />
   );
 }
