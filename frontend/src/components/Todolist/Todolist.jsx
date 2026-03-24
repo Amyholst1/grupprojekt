@@ -1,3 +1,4 @@
+import { useState } from "react";
 import DeleteTodo from "./DeleteTodo";
 import Checkbox from "./Checkbox";
 import "./Todolist.css";
@@ -5,6 +6,7 @@ import EditTodo from "./EditTodo";
 import { LuSquarePen } from "react-icons/lu";
 
 function Todolist({ tasks, selectedFilter, sortBy, showNotification }) {
+  const [editingTodoId, setEditingTodoId] = useState(null);
   let filteredTodos = [...tasks];
 
   // filter
@@ -30,7 +32,12 @@ function Todolist({ tasks, selectedFilter, sortBy, showNotification }) {
           <li key={todo.id}>
             <div className="listleft">
               <Checkbox todo={todo} />
-              <EditTodo todo={todo} />
+              <EditTodo
+                todo={todo}
+                isEditing={editingTodoId === todo.id}
+                onStartEdit={() => setEditingTodoId(todo.id)}
+                onStopEdit={() => setEditingTodoId(null)}
+              />
             </div>
 
             <div className="listright">
@@ -38,11 +45,7 @@ function Todolist({ tasks, selectedFilter, sortBy, showNotification }) {
               <div className="todo-actions">
                 <button
                   className="icon-btn"
-                  onClick={() =>
-                    document.dispatchEvent(
-                      new CustomEvent("start-edit", { detail: todo.id }),
-                    )
-                  }
+                  onClick={() => setEditingTodoId(todo.id)}
                 >
                   <LuSquarePen size={16} />
                 </button>
