@@ -3,15 +3,18 @@ import AddTask from "./AddTask";
 import DateInput from "./DateInput";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
+import { addTaskAPI } from "../../api/tasks";
 
 function TaskInput({ showToast, showNotification }) {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
   const queryClient = useQueryClient();
 
-  async function handleAddTask() {
+  async function handleAddTask(event) {
+    event?.preventDefault();
+
     if (!task.trim()) {
-      alert("Please enter a task");
+      showToast("Please enter a task", "error");
       return;
     }
 
@@ -24,29 +27,15 @@ function TaskInput({ showToast, showNotification }) {
     try {
       console.log("Sending task:", newTask);
 
-      const response = await fetch("http://localhost:3002/addTodo", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newTask),
-      });
-
-      // Check if the response is successful
-      if (!response.ok) {
-        throw new Error("Failed to add task");
-      }
-
-      const data = await response.json();
-      console.log("Server response:", data);
+      await addTaskAPI(newTask);
 
       queryClient.invalidateQueries({ queryKey: ["Todos"] });
 
+      showToast("Task added successfully!", "success");
+      showNotification(`${task} added to list ✔`);
+
       setTask("");
       setDate("");
-
-      showToast("Task added successfully!", "success");
-      showNotification(`${task} added to list ✔`)
     } catch (error) {
       console.error("Error adding task:", error);
       showToast("Failed to add task. Please try again.", "error");
@@ -54,7 +43,7 @@ function TaskInput({ showToast, showNotification }) {
   }
 
   return (
-    <div className="task-input-container">
+    <form className="task-input-container" onSubmit={handleAddTask}>
       <div className="task-field">
         <input
           type="text"
@@ -62,13 +51,14 @@ function TaskInput({ showToast, showNotification }) {
           value={task}
           onChange={(e) => setTask(e.target.value)}
           className="task-text-input"
+          aria-label="Task name"
         />
 
         <DateInput date={date} setDate={setDate} />
       </div>
 
-      <AddTask onClick={handleAddTask} />
-    </div>
+      <AddTask />
+    </form>
   );
 }
 

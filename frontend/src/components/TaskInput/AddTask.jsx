@@ -1,8 +1,8 @@
 import "./AddTask.css";
 
-function AddTask({ text = "Add Task", onClick }) {
+function AddTask({ text = "Add Task" }) {
   return (
-    <button className="add-task-btn" onClick={onClick}>
+    <button type="submit" className="add-task-btn" aria-label={text}>
       {text}
     </button>
   );
