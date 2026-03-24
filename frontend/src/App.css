@@ -57,4 +57,8 @@ body.dark {
   color: #ffffff
 }
 
+input[type="checkbox"] {
+  accent-color: #F97316;
+}
+
 
