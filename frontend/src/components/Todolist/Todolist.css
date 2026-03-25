@@ -37,3 +37,11 @@ body.dark li {
   background-color: #2a2a2a;
   color: white;
 }
+
+body.dark .icon-btn {
+  color: #ccc;
+}
+
+body.dark .icon-btn svg {
+  color: #ffffff;
+}
