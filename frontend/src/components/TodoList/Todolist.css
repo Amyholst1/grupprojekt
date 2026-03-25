@@ -45,3 +45,7 @@ body.dark .icon-btn {
 body.dark .icon-btn svg {
   color: #ffffff;
 }
+.todo-title.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

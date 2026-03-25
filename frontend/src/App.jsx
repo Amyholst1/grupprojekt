@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { useState } from "react";
 import Filter from "./components/Filter/Filter";
 import TaskInput from "./components/TaskInput/TaskInput";
-import Todolist from "./components/Todolist/Todolist";
+import TodoList from "./components/TodoList/TodoList";
 import SortBy from "./components/SortBy/SortBy";
 import ToastMessage from "./components/ToastMessage/ToastMessage";
 import Footer from "./components/Footer/Footer";
@@ -66,7 +66,7 @@ function App() {
           <SortBy sortBy={sortBy} setSortBy={setSortBy} />
         </div>
 
-        <Todolist
+        <TodoList
           tasks={tasks}
           selectedFilter={selectedFilter}
           sortBy={sortBy}
