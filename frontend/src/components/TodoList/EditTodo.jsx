@@ -59,7 +59,10 @@ function EditTodo({ todo, isEditing, onStartEdit, onStopEdit }) {
     </div>
   ) : (
     <div className="todo-view">
-      <span className="todo-title" onDoubleClick={onStartEdit}>
+      <span
+        className={`todo-title ${todo.completed ? "completed" : ""}`}
+        onDoubleClick={onStartEdit}
+      >
         {todo.title}
       </span>
     </div>
