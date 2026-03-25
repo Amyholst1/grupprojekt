@@ -1,11 +1,11 @@
 import { useState } from "react";
 import DeleteTodo from "./DeleteTodo";
 import Checkbox from "./Checkbox";
-import "./Todolist.css";
+import "./TodoList.css";
 import EditTodo from "./EditTodo";
 import { LuSquarePen } from "react-icons/lu";
 
-function Todolist({ tasks, selectedFilter, sortBy, showNotification }) {
+function TodoList({ tasks, selectedFilter, sortBy, showNotification }) {
   const [editingTodoId, setEditingTodoId] = useState(null);
   let filteredTodos = [...tasks];
 
@@ -64,4 +64,4 @@ function Todolist({ tasks, selectedFilter, sortBy, showNotification }) {
   );
 }
 
-export default Todolist;
+export default TodoList;
