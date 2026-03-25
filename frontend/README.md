@@ -1,32 +1,64 @@
-## UI Mockup
+## Todo-App iTask
+Detta är en Todo-applikation byggd med React (frontend), Express (backend) och Firestore som databas.
 
-This is the full UI mockup for the frontend project.
+# Funktioner
+- Skapa todos
+- Uppdatera todos
+- Radera todos
+- Visa alla todos
 
-### Figma Embed
+---
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
-    width="800" height="450"
-    src="https://embed.figma.com/design/5hUpQJbXjem1mx1YXM0KyN/First-Figma?node-id=134-3&embed-host=share"
-    allowfullscreen>
-</iframe>
+## Starta Projektet
 
-### Screenshots
+# 1. Klona projektet
+```bash
+git clone https://github.com/Amyholst1/grupprojekt
+cd grupprojekt
+```
 
-### ![Homepage](design/01-homepage.png)
+----
 
-# React + Vite
+# 2. Starta backend
+Gå till backend mappen:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```bash
+cd backend
+npm install
+node server.js
+```
 
-Currently, two official plugins are available:
+Backend körs på:
+http://localhost:3002/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+----
 
-## React Compiler
+# 3. Starta frontend
+Gå till frontend mappen:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+cd frontend 
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Frontend körs på:
+http://localhost:5173/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+----
+
+## Grupparbete gjort av Amy, Prasoon och Johannes
+Vi har delat upp arbetet mellan frontend och backend. 
+Vi har använt Github & Git för versionhantering.
+
+----
+
+# Teknologier
+React
+Express
+Firebase Firestore
+
+# Vår figma
+```bash
+https://www.figma.com/design/5hUpQJbXjem1mx1YXM0KyN/First-Figma?node-id=105-590&p=f
+```
