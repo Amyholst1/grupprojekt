@@ -16,7 +16,7 @@ function DeleteTodo({id, title, showNotification}) {
     }
 
     return (
-        <button onClick={deleteTodo}>
+        <button className= "icon-btn" onClick={deleteTodo}>
             <FiTrash></FiTrash>
         </button>
     )
